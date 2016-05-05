@@ -25,3 +25,7 @@ def parse(string):
         if l.find("\'") != -1:
             tr = mat.transposer(l)
             print tr
+
+        if l.find('inv') != -1:
+            inv = mat.inverser(l[-2])
+            print inv
