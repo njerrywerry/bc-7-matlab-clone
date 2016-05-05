@@ -2,20 +2,25 @@
 
 from __future__ import unicode_literals
 from prompt_toolkit import prompt
-from prompt_toolkit.history import FileHistory
+from prompt_toolkit.history import InMemoryHistory
 from pygments.lexers import MatlabLexer
 
-import pickle
-from matrix import save_workspace, load_workspace
-import matrix
+from matrix import Matrix
+from namespace import load_workspace, save_workspace, name_space
+from parser import parse
 
 def main():
-    # history = FileHistory(filename='filename.mat')
+    history = InMemoryHistory()
     load_workspace()
-
     while True:
-        input_ = prompt('Mini Matlab >>> ', lexer=MatlabLexer)
-        if input_ == 'exit':
+        try:
+            input_ = prompt('Mini Matlab >>> ', lexer=MatlabLexer, history=history)
+            parse(input_)
+
+            if input_ == 'exit':
+                workspace()
+                break
+        except (EOFError, KeyboardInterrupt, SystemExit):
             workspace()
             break
 
