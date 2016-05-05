@@ -17,3 +17,7 @@ def parse(string):
         if l.find('+') != -1:
             add = mat.add(l)
             print add
+
+        if l.find("\'") != -1:
+            tr = mat.transposer(l)
+            print tr

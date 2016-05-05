@@ -31,3 +31,8 @@ class Matrix(object):
         val = name_space.get(arr[0])
         sum_ = val + int(arr[1])
         return sum_
+
+    def transposer(self, inp):
+        matr = inp.replace("\'", '')
+        val = name_space.get(matr)
+        return np.transpose(val)
