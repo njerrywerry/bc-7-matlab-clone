@@ -25,8 +25,8 @@ class Matrix(object):
             arr = np.array(input_)
             return arr
 
-    def math_ops(self, input2):
-        """Matrix and array operations"""
+    def add(self, input2):
+        """Addition of a matrix and a number"""
         arr = input2.split('+')
         val = name_space.get(arr[0])
         sum_ = val + int(arr[1])

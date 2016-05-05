@@ -15,5 +15,5 @@ def parse(string):
             return matr
 
         if l.find('+') != -1:
-            add = mat.math_ops(l)
+            add = mat.add(l)
             print add
