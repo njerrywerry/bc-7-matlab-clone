@@ -20,3 +20,12 @@ def load_workspace(filename='filename.mat'):
         # name_space = pickle.load(open(filename, 'r'))
     except:
         pass
+
+def workspace():
+    """Saves workspace file to load on next session."""
+    acknowledge = raw_input('Do you want to save your work? y/n ')
+    if acknowledge == 'y':
+        save_workspace()
+        print 'Workspace saved. Goodbye!'
+    elif acknowledge == 'n':
+        print 'Goodbye...'
