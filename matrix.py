@@ -15,16 +15,19 @@ class Matrix(object):
         """
         input_ = str(input_)
 
-        # if input_.find('[') and input_.find(']'):
+        # if input_.find('zeros'):
+        #     row, col = int(input_[8]), int(input_[10])
+        #     return np.zeros((row, col), dtype=np.int16)
         if input_.find(';'):
             input_.replace('[', ''), input_.replace(']', '')
             return np.matrix(input_)
         else:
             arr = np.array(input_)
             return arr
-        # else:
-        #     return 'Invalid input'
 
-    def transpose(self, input_):
-        """Transpose a matrix."""
-        return np.transpose(input_)
+    def math_ops(self, input2):
+        """Matrix and array operations"""
+        arr = input2.split('+')
+        val = name_space.get(arr[0])
+        sum_ = val + int(arr[1])
+        return sum_

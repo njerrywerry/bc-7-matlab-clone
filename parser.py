@@ -2,12 +2,18 @@ from matrix import Matrix
 from namespace import load_workspace, save_workspace, name_space
 
 def parse(string):
+    # import pdb; pdb.set_trace()
     if string in name_space:
         value = name_space.get(string)
         print value
-    elif string.find('='):
-        l = string.replace(' ', '')
+    else:
         mat = Matrix()
-        matr = mat.matrix_creation(l[2:])
-        name_space[str(l[0])] = matr
-        return matr
+        l = string.replace(' ', '')
+        if l.find('=') != -1:
+            matr = mat.matrix_creation(l[2:])
+            name_space[str(l[0])] = matr
+            return matr
+
+        if l.find('+') != -1:
+            add = mat.math_ops(l)
+            print add
