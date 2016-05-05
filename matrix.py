@@ -36,3 +36,11 @@ class Matrix(object):
         matr = inp.replace("\'", '')
         val = name_space.get(matr)
         return np.transpose(val)
+
+    def concat(self, mx):
+        val1 = name_space.get(mx[1])
+        val2 = name_space.get(mx[3])
+        if mx.find(',') != -1:
+            return np.concatenate((val1, val2), axis=1)
+        elif mx.find(';') != -1:
+            return np.concatenate((val1, val2), axis=0)
