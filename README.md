@@ -3,7 +3,7 @@
 ## Features
 
 * Array and matrix creation using variables:
-```python
+```MATLAB
 a = [1, 2, 3, 4]
 b = [1, 2, 3; 4, 5, 6]
 c = [45, 67, 34; 32, 1, 6]
@@ -16,24 +16,24 @@ z = zeros(5,1)
 
 * Matrix and array operations:
   * Addition of a matrix and a number:
-  ```python
+  ```MATLAB
   a + 10
   ```
   * Transposing a matrix using an apostrophe operator ('):
-  ```python
+  ```MATLAB
   a'
   ```
   * Inverse of a matrix:
-  ```python
+  ```MATLAB
   inv(a)
   ```
 
 * Concatenation, i.e. joining two arrays to form a larger one:
   * Horizontal concatenation:
-  ```python
+  ```MATLAB
   A = [a,b]
   ```
   * Vertical concatenation:
-  ```python
+  ```MATLAB
   B = [a;b]
   ```
