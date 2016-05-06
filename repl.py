@@ -6,12 +6,12 @@ from prompt_toolkit.history import InMemoryHistory
 from pygments.lexers import MatlabLexer
 
 from matrix import Matrix
-from namespace import workspace, load_workspace
+from namespace import workspace, load_workspace, name_space
 from parser import parse
 
 def main():
     history = InMemoryHistory()
-    name_space = load_workspace()
+    load_workspace()
 
     while True:
         try:
@@ -22,7 +22,7 @@ def main():
                 workspace()
                 break
             else:
-                parse(name_space, input_)
+                parse(input_)
         except (EOFError, KeyboardInterrupt, SystemExit):
             workspace()
             break

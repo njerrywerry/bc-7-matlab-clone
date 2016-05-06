@@ -1,12 +1,12 @@
 from matrix import Matrix
-from namespace import load_workspace, save_workspace
+from namespace import load_workspace, save_workspace, name_space
 
-def parse(name_space, string):
+def parse(string):
     if string in name_space:
         value = name_space.get(string)
         print value
     else:
-        mat = Matrix(name_space)
+        mat = Matrix()
         l = string.replace(' ', '')
         if l.find('=') != -1:
             if l[2:] not in name_space and l.find('zeros') != -1:

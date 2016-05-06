@@ -1,9 +1,9 @@
 import numpy as np
 from numpy.linalg import inv
+from namespace import name_space
 
 class Matrix(object):
-    def __init__(self, name_space):
-        self.name_space = name_space
+    def __init__(self):
         """Initialize matrix object"""
         pass
 
@@ -35,20 +35,20 @@ class Matrix(object):
         # import pdb; pdb.set_trace()
 
         arr = input2.split('+')
-        val = self.name_space.get(arr[0])
+        val = name_space.get(arr[0])
         sum_ = val + int(arr[1])
         return sum_
 
     def transposer(self, inp):
         """Transpose a matrix."""
         matr = inp.replace("\'", '')
-        val = self.name_space.get(matr)
+        val = name_space.get(matr)
         return np.transpose(val)
 
     def concat(self, mx):
         """Conatenate two matrices to form a larger one."""
-        val1 = self.name_space.get(mx[1])
-        val2 = self.name_space.get(mx[3])
+        val1 = name_space.get(mx[1])
+        val2 = name_space.get(mx[3])
         if mx.find(',') != -1:
             return np.concatenate((val1, val2), axis=1)
         elif mx.find(';') != -1:
@@ -56,7 +56,7 @@ class Matrix(object):
 
     def inverser(self, y):
         """Inverse of a matrix"""
-        value = self.name_space.get(y)
+        value = name_space.get(y)
         if value.shape == (np.transpose(value)).shape:
             counter = 0
             for i in value:
