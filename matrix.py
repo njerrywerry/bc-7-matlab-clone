@@ -16,15 +16,19 @@ class Matrix(object):
         """
         input_ = str(input_)
 
-        # if input_.find('zeros'):
-        #     row, col = int(input_[8]), int(input_[10])
-        #     return np.zeros((row, col), dtype=np.int16)
         if input_.find(';'):
             input_.replace('[', ''), input_.replace(']', '')
             return np.matrix(input_)
         else:
             arr = np.array(input_)
             return arr
+
+    def matrix_creation_using_zeros(self, z):
+        """Creates a row-by-column zero matrix."""
+        z = str(z)
+        row, col = int(z[-4]), int(z[-2])
+        result = np.zeros((row, col), dtype=np.int16)
+        return result
 
     def add(self, input2):
         """Addition of a matrix and a number"""

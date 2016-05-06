@@ -10,7 +10,10 @@ def parse(string):
         mat = Matrix()
         l = string.replace(' ', '')
         if l.find('=') != -1:
-            if l[3] not in name_space:
+            if l[2:] not in name_space and l.find('zeros') != -1:
+                zer = mat.matrix_creation_using_zeros(l[2:])
+                name_space[str(l[0])] = zer
+            elif l[3] not in name_space:
                 matr = mat.matrix_creation(l[2:])
                 name_space[str(l[0])] = matr
             elif l[3] and l[5] in name_space:
