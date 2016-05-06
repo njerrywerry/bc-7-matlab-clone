@@ -11,16 +11,18 @@ from parser import parse
 
 def main():
     history = InMemoryHistory()
-    load_workspace()
+    name_space = load_workspace()
+
     while True:
         try:
             input_ = prompt('Mini Matlab >>> ', lexer=MatlabLexer, history=history)
+            # import pdb; pdb.set_trace()
 
             if input_ == 'exit':
                 workspace()
                 break
             else:
-                parse(input_)
+                parse(name_space, input_)
         except (EOFError, KeyboardInterrupt, SystemExit):
             workspace()
             break
